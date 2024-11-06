@@ -6,4 +6,11 @@ type StackParamList = {
 };
 type HomeScreenProp = NavigationProp<StackParamList, 'Home'>; 
 
-export default HomeScreenProp
+
+type AuthParamList = {
+    Login: undefined;
+    Register: undefined;
+};
+type AuthProp = NavigationProp<AuthParamList, 'Login'>; 
+
+export {AuthProp, HomeScreenProp}

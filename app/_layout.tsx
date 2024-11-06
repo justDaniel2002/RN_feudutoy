@@ -5,11 +5,14 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
+import "@/css/global.css"
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import Home from '@/screens/Home';
 import Profile from '@/screens/Profile';
 import Detail from '@/screens/Detail';
+import Login from '@/screens/Auth/Login';
+import Register from '@/screens/Auth/Register';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -19,9 +22,9 @@ const Stack = createStackNavigator()
 
 const TabNavigator = () => {
   return <Tab.Navigator>
-    <Tab.Screen name='Home' component={Home}/>
-    <Tab.Screen name='Profile' component={Profile}/>
-
+    <Tab.Screen name='Home' options={{headerShown: false}} component={Home}/>
+    <Tab.Screen name='Profile' options={{headerShown: false}} component={Profile}/>
+    <Tab.Screen name='Login' options={{headerShown: false}} component={Login}/>
   </Tab.Navigator>
 }
 
@@ -29,6 +32,7 @@ export const StackNavigator = () => {
   return <Stack.Navigator>
     <Stack.Screen options={{headerShown: false}} name='HomeScreen' component={TabNavigator}/>
     <Stack.Screen name='Detail' component={Detail}/>
+    <Stack.Screen name='Register' options={{headerShown: false}} component={Register}/>
   </Stack.Navigator>
 }
 
